@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Microsoft",
+  "classifications": [ "Api", "Layered" ],
+  "identity": "My.Template",
+  "name": "My Template",
+  "description": "Creates a layered project",
+  "shortName": "mytemplate",
+  "sourceName": "Template",
+  "tags": {
+    "type": "project",
+    "language": "C#"
+  },
+  "preferNameDirectory": true,
+  "symbols": {
+    "Framework":{
+      "type": "parameter",
+      "description": "The target Framework for the project",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net5.0"
+        },
+        {
+          "choice": "net6.0"
+        },
+        {
+          "choice": "net7.0"
+        }
+      ],
+      "defaultValue": "net6.0",
+      "replaces": "{ProjectTargetFramework}"
+    },
+    "EnableSwaggerSupport":{
+      "type": "parameter",
+      "description": "Enables swagger support",
+      "datatype": "bool",
+      "defaultValue": "true"
+    },
+    "database":{
+      "type": "parameter",
+      "description": "The target database name for the project",
+      "datatype": "text",
+      "defaultValue": "my_db",
+      "replaces": "{database_name}"
+  }
+}
+}
