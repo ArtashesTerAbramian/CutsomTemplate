@@ -8,7 +8,7 @@
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "Template": "Host=127.0.0.1;Port=5432;Username=postgres;Password=artash;Database={database_name};Pooling=true;Maximum Pool Size=1000;Timeout=300;CommandTimeout=300;"
+    "Template": "Host=127.0.0.1;Port=5432;Username=postgres;Password=artash;Database=Template_db;Pooling=true;Maximum Pool Size=1000;Timeout=300;CommandTimeout=300;"
   }
 }
 
