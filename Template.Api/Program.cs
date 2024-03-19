@@ -10,17 +10,19 @@ using Newtonsoft.Json.Serialization;
 using Serilog;
 using Template.BLL.Helpers;
 using Template.BLL.Middlewares;
+using Serilog.Events;
 
 try
 {
 
     var builder = WebApplication.CreateBuilder(args);
 
-
     Log.Logger = new LoggerConfiguration()
-        .ReadFrom.Configuration(builder.Configuration)
-        .Enrich.FromLogContext()
-        .CreateLogger();
+       .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+       .Enrich.FromLogContext()
+       .WriteTo.Console()
+       .CreateBootstrapLogger();
+
     builder.Host.UseSerilog(Log.Logger);
 
     builder.Environment.WebRootPath = builder.Configuration.GetSection("FileSettings").GetSection("FilePath").Value;
